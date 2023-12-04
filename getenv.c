@@ -9,13 +9,18 @@
  * variable, NULL if there's no match
  */
 
-char *_getenv(info_t *, const char *)
+char *_getenv(info_t *info, const char *var)
 {
+    /* Move extern declaration to the top */
     extern char **environ;
-    size_t n = strlen(var);
+    size_t n;
+
+    (void)info; /* Silence the unused parameter warning */
 
     if (!var)
         return NULL;
+
+    n = strlen(var);
 
     while (*environ)
     {
@@ -26,3 +31,4 @@ char *_getenv(info_t *, const char *)
 
     return NULL;
 }
+
