@@ -1,0 +1,5 @@
+o_functions.c:181:5: error: C++ style comments are not allowed in ISO C90 [-Werror]
+  181 |     // Add your code here if needed
+      |     ^
+file_io_functions.c:181:5: note: (this will be reported only once per input file)
+cc1: all warnings being treated as errors
