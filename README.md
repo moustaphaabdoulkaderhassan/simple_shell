@@ -40,4 +40,4 @@ $
 - Running in non-interactive mode
 
 <br />
-<small>Written in C by Jahtomini Ogunderu and Isaac-Victor Shonowo.<small/>
+<small>Written in C by Jahtomini Ogunderu and Moustapha Abdoulkader Hassan.<small/>
