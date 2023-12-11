@@ -1,13 +1,43 @@
-0x16. C - Simple Shell
-📄 🚀
+# Simple shell
 
-Description
+An attempt at developing a minimal shell using C as part of the ALX software engineering program.
 
-This project is an implementation of the shell that ALX Africa Software Engineering developed as a Milestone Project for the C code.
-The first trimester project, "Gates of Shell," aids students in comprehending the sophisticated ideas underlying the shell program, such as processes, system calls, bit manipulation, file management, and error handling.
-Shell is a basic command interpreter for UNIX that mimics the features of the simple shell (sh).
-All of the programming for this program was done in C.
 
-COPYRIGHT
-Copyright (C) 2022 by Moustapha Abdoulkader Hassan  and Jahtomini Ogunderu
-All rights reserved
+## Instructions
+The easiest way of using the shell is via the shell script.
+
+    ./run.sh
+
+To build it manually, compile using `gcc`.
+
+    gcc *.c -o hsh
+
+You can also use the exact flags used by the checker in ALX.
+
+    gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+
+
+## Features (still WIP)
+- Running commands using their complete paths.
+```
+$ /usr/bin/echo "Bazinga!"
+"Bazinga!"
+$
+```
+
+- Running commands directly.
+```
+$ echo "Bazinga"
+"Bazinga"
+$
+```
+- One built-in command – `exit`
+
+## More coming... maybe
+- Piping
+- Redirection
+- More built-ins like cd and help
+- Running in non-interactive mode
+
+<br />
+<small>Written in C by Jahtomini Ogunderu and Isaac-Victor Shonowo.<small/>
