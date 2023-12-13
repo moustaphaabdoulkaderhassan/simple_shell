@@ -14,7 +14,7 @@ fi
 printf "simple_shell v0.3\n"
 
 if [ "$1" = "--debug" ]; then
-    gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -fsanitize=address *.c -o hsh
+    gcc -Wall -Werror -Wextra -g -pedantic -std=gnu89 -fsanitize=address *.c -o hsh
     if [ $? -eq 0 ]; then
         ./hsh
     fi

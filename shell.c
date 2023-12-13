@@ -26,15 +26,15 @@ int main(void)
 		command = prepare(args[0]);
 
 		run_command(command, args, environ);
-	
-		for (i = 0; args[i] != NULL; i++)
-			free(args[i]);
 
-	}
+	for (i = 0; args[i] != NULL; i++)
+		free(args[i]);
+
+	free(args);
+}
 
 	free(command);
 	free(raw_user_input);
-	free(args);
 
 	return (0);
 }

@@ -92,12 +92,9 @@ void read_input(char *command, size_t size)
 char *prepare(char *command)
 {
 	char *path = get_path();
-	char *token = malloc(strlen(path));
-	char *file = malloc(strlen(path) + strlen(command) + 1);
 	char *path_cpy = strdup(path);
-	int found = 0;
-
-	token = strtok(path_cpy, ":");
+	char *token = strtok(path_cpy, ":");
+	char *file = malloc(strlen(path) + strlen(command) + 1);
 
 	while (token != NULL)
 	{
@@ -120,23 +117,18 @@ char *prepare(char *command)
 
 		if (access(file, F_OK) == 0)
 		{
+			free(path_cpy);
 			return (file);
-			found = 1;
 		}
 
 		token = strtok(NULL, ":");
 	}
 
-	free(token);
 	free(file);
 	free(path_cpy);
 
-	if (found == 1)
-		return (command);
-	else
-		return (NULL);
+	return (NULL);
 }
-
 
 /**
  * get_path - Returns the PATH.
