@@ -18,21 +18,22 @@ int main(void)
 
 	while (1)
 	{
-    size_t i = 0;
+		size_t i = 0;
+
 		read_input(raw_user_input, MAX_CMD_LEN);
 		args = get_args(raw_user_input);
 
 		command = prepare(args[0]);
 
 		run_command(command, args, environ);
-	  
-    for (i = 0; args[i] != NULL; i++)
-		  free(args[i]);
-  
-    free(args);
-  }
 
-  free(command);
+	for (i = 0; args[i] != NULL; i++)
+		free(args[i]);
+
+	free(args);
+}
+
+	free(command);
 	free(raw_user_input);
 
 	return (0);
