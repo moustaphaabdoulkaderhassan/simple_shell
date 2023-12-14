@@ -27,10 +27,10 @@ int main(void)
 
 		run_command(command, args, environ);
 
-	  for (i = 0; args[i] != NULL; i++)
-		  free(args[i]);
+		for (i = 0; args[i] != NULL; i++)
+			free(args[i]);
 
-	  free(args);
+	free(args);
 }
 
 	free(command);

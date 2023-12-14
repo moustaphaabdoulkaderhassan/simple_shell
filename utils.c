@@ -76,12 +76,12 @@ void read_input(char *command, size_t size)
 
 	for (i = 0; command[i] != '\0'; i++)
 	{
-        if (!isspace((unsigned char)command[i]))
-            break;
+		if (!isspace((unsigned char)command[i]))
+			break;
 
 		memset(command, 0, size);
 		read_input(command, size);
-    }
+	}
 
 	if (strncmp(command, "exit", 4) == 0)
 	{
@@ -146,38 +146,46 @@ char *prepare(char *command)
  *
  * Return: The PATH environment variable as a string.
  */
-char *get_path(void) {
-    int i = 0;
-    char cwd[256];
+char *get_path(void)
+{
+	int i = 0;
+	char cwd[256];
 
-    if (getcwd(cwd, sizeof(cwd)) != NULL) {
-        char *pathSeparator = ":";
+	if (getcwd(cwd, sizeof(cwd)) != NULL)
+	{
+		char *sep = ":";
 
-        while (environ[i] != NULL) {
-            if (strncmp(environ[i], "PATH=", 5) == 0) {
-                char *result = malloc(strlen(environ[i] + 5) + strlen(pathSeparator) + strlen(cwd) + 1);
+		while (environ[i] != NULL)
+		{
+			if (strncmp(environ[i], "PATH=", 5) == 0)
+			{
+				char *result = malloc(strlen(environ[i] + 5) + 2 + strlen(cwd) + 1);
 
-                if (result != NULL) {
-                    strcpy(result, environ[i] + 5);
-                    strcat(result, pathSeparator);
-                    strcat(result, cwd);
+				if (result != NULL)
+				{
+					strcpy(result, environ[i] + 5);
+					strcat(result, pathSeparator);
+					strcat(result, cwd);
 
-                    return result;
-                } else {
-                    perror("Memory allocation error");
-                    exit(EXIT_FAILURE);
-                }
-            }
-            i++;
-        }
-    }
+					return (result);
+				}
+				else
+				{
+					perror("Memory allocation error");
+					exit(EXIT_FAILURE);
+				}
+			}
+			i++;
+		}
+	}
 
-    fprintf(stderr, "There has been an error;\n");
-    exit(EXIT_FAILURE);
+	fprintf(stderr, "There has been an error;\n");
+	exit(EXIT_FAILURE);
 }
 
 
-/*char *get_path(void)
+/*
+* char *get_path(void)
 {
 	int i = 0;
 	char cwd[256];
