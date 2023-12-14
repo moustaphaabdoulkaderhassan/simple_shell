@@ -164,7 +164,7 @@ char *get_path(void)
 				if (result != NULL)
 				{
 					strcpy(result, environ[i] + 5);
-					strcat(result, pathSeparator);
+					strcat(result, sep);
 					strcat(result, cwd);
 
 					return (result);
